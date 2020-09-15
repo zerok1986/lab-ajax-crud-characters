@@ -41,11 +41,11 @@ We have our API running, so now we will construct a class `APIHandler` to deal w
 
 The functionalities of the `APIHandler` class are:
 
--Get all the characters info from https://minions-api.herokuapp.com/characters
--Get a single character info from https://minions-api.herokuapp.com/characters/:id
--Create a single character posting the data to https://minions-api.herokuapp.com/characters
--Delete a single character through his id in https://minions-api.herokuapp.com/characters/:id
--Edit a single character through his id in https://minions-api.herokuapp.com/characters/:id
+- Get all the characters info from https://minions-api.herokuapp.com/characters
+- Get a single character info from https://minions-api.herokuapp.com/characters/:id
+- Create a single character posting the data to https://minions-api.herokuapp.com/characters
+- Delete a single character through his id in https://minions-api.herokuapp.com/characters/:id
+- Edit a single character through his id in https://minions-api.herokuapp.com/characters/:id
 
 You have to create an Axios call for each of these actions. You can create as many functions as you need inside the class, but remember this class should only manage the API request and display the resulting value.
 
@@ -80,7 +80,7 @@ Retrieve all the available characters in the API and show them in the applicatio
 Following the same idea as with fetching all, to retrieve a single character's data we need to:
 
 - Create a button (_Fetch one_ in the image above) to, through an input field, get the `id` of an existing character.
-- Search that character in the API with _[http://localhost:8000/characters/:id](http://ih-crud-api.herokuapp.com/characters/:id)_
+- Search that character in the API with _[https://minions-api.herokuapp.com/characters/:id](https://minions-api.herokuapp.com/characters/:id)_
 - Get the data and show the character info as a card.
 
 #### Delete one character
@@ -90,7 +90,7 @@ Following the same idea as with fetching all, to retrieve a single character's d
 To be able to delete a character from the API database, we need to:
 
 - Create a button (_Delete_ one in the image above) to get the `id` of the character we want to delete.
-- Delete that character in the API with _[http://localhost:8000/characters/:id](http://ih-crud-api.herokuapp.com/characters/:id)_
+- Delete that character in the API with _[https://minions-api.herokuapp.com/characters/:id](https://minions-api.herokuapp.com/characters/:id)_
    <!-- :::danger -->
   **Remember which HTTP verb you need in the request!!**
    <!-- ::: -->
@@ -104,7 +104,7 @@ To be able to delete a character from the API database, we need to:
 We will create a form with 4 inputs: name(text), occupation(text), weapon(text) and cartoon(checkbox).
 
 - Create a button (_Create_ in the image above) to get all the data from the form.
-- Send the data to the `APIHandler` function to save the new character through _[http://localhost:8000/characters](http://ih-crud-api.herokuapp.com/characters)_
+- Send the data to the `APIHandler` function to save the new character through _[https://minions-api.herokuapp.com/characters](https://minions-api.herokuapp.com/characters)_
    <!-- :::danger -->
   **Remember which HTTP verb you need in the request!!**
    <!-- ::: -->
@@ -118,7 +118,7 @@ We will create a form with 4 inputs: name(text), occupation(text), weapon(text) 
 We will create a form with 4 inputs: name(text), occupation(text), weapon(text) and cartoon(checkbox). Also, we will create a new input to indicate the `id` of the character we want to edit.
 
 - Create a button (_Update_ in the image above) to get all the data from the form.
-- Send the data to the `APIHandler` function to save the new character through _[http://localhost:8000/characters/:id](http://ih-crud-api.herokuapp.com/characters/:id)_
+- Send the data to the `APIHandler` function to save the new character through _[https://minions-api.herokuapp.com/characters/:id](https://minions-api.herokuapp.com/characters/:id)_
    <!-- :::danger -->
   **Remember which HTTP verb you need in the request!!**
    <!-- ::: -->

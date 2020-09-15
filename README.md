@@ -27,75 +27,13 @@ $ git push origin master
 
 ## Instructions
 
-We will first create a fake API using **JSON-Server** to then do an application to Create, Read, Update, and Delete characters from it. The routes available in this API are the following:
+Today we are going to work on our AJAX skills. To do this we will connect to an API and with its resources we will perform a set of CRUD actions.
 
-- **Verb:** GET, **Route:** "/characters"
-  - It receives NO parameters
-  - It returns the full characters list
-  - It returns JSON
-- **Verb:** GET, **Route:** "/characters/:id"
-  - It receives the character ID as a parameter (route)
-  - It returns the character with the indicated `id`
-  - It returns JSON
-- **Verb:** POST, **Route:** "/characters"
-  - It receives an object as a parameter, with the following format:
-    `{ name: string, occupation: string, cartoon: boolean, weapon: string }`
-  - It returns the created character if there are no errors
-  - It returns the wrong fields if there is some error
-  - It returns JSON
-- **Verb:** PATCH/PUT, **Route:** "/characters/:id"
-  - It receives the character `id` as a parameter (route)
-  - It receives an object as a parameter, with the following format:
-    `{ name: string, occupation: string, cartoon: boolean, weapon: string }`
-  - All the fields are optional
-  - It returns the updated character if there are no errors
-  - It returns "Character not found" if there is no character with the indicated `id`
-  - It returns JSON / text
-- **Verb:** DELETE, **Route:** "/characters/:id"
-  - It receives the character `id` as a parameter (route)
-  - It returns "Character has been successfully deleted" if there are no errors
-  - It returns "Character not found" if there is no character with the indicated id
-  - It returns text
-
-### Iteration 1: The Fake API
+### Iteration 1: The API
 
 ![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_99257e2c4240770e6b4bdd406d943ac8.png)
 
-In the `api` folder, create a `db.json` file. Inside our `db.json` we will specify the first 2 characters of our API, so we can start working with some data. Copy/paste the following characters in the file:
-
-```javascript
-{
-  "characters": [
-    {
-      "id": 1,
-      "name": "Han Solo",
-      "occupation": "Smuggler",
-      "weapon": "Blaster Pistol",
-      "cartoon": true
-    },
-    {
-      "id": 2,
-      "name": "Luke Skywalker",
-      "occupation": "Jedi Knight",
-      "weapon": "Lightsaber",
-      "cartoon": false
-    },
-    {
-      "id": 3,
-      "name": "Sponge Bob",
-      "occupation": "Lives under the sea",
-      "weapon": "Crabby Patty",
-      "cartoon": true
-    }
-  ]
-}
-```
-
-Then run the following code in the terminal to make our API start working:
-
-```bash
-$ json-server --watch db.json --port 8000
-```
+Please navigate to the following address (https://minions-api.herokuapp.com/) to learn about the API endpoints.
 
 ### Iteration 2: The `APIHandler.js` file
 
@@ -103,11 +41,11 @@ We have our API running, so now we will construct a class `APIHandler` to deal w
 
 The functionalities of the `APIHandler` class are:
 
-- Get all the characters info from _[http://localhost:8000/characters](http://localhost:8000/characters)_
-- Get a single character info from _[http://localhost:8000/characters/:id](http://localhost:8000/characters/:id)_
-- Create a single character posting the data to _[http://localhost:8000/characters](http://localhost:8000/characters)_
-- Delete a single character through his id in _[http://localhost:8000/characters/:id](http://localhost:8000/characters/:id)_
-- Edit a single character through his id in _[http://localhost:8000/characters/:id](http://ih-crud-api.herokuapp.com/characters/:id)_
+-Get all the characters info from https://minions-api.herokuapp.com/characters
+-Get a single character info from https://minions-api.herokuapp.com/characters/:id
+-Create a single character posting the data to https://minions-api.herokuapp.com/characters
+-Delete a single character through his id in https://minions-api.herokuapp.com/characters/:id
+-Edit a single character through his id in https://minions-api.herokuapp.com/characters/:id
 
 You have to create an Axios call for each of these actions. You can create as many functions as you need inside the class, but remember this class should only manage the API request and display the resulting value.
 

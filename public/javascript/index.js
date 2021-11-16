@@ -1,4 +1,7 @@
 const charactersAPI = new APIHandler('https://minions-api.herokuapp.com/')
+const characterContainer = document.querySelector('.characters-container')
+const updateBtn = document.getElementById('send-data')
+const createBtn = document.getElementById('create-send-data')
 
 window.addEventListener('load', () => {
   document
@@ -9,7 +12,7 @@ window.addEventListener('load', () => {
         .then((characters) => {
           let charList = ''
 
-          characters.data.forEach((char) => {
+          characters.data.reverse().forEach((char) => {
             charList += `<div class="character-info">
                      <div class="name">Id: ${char.id}</div>
                      <div class="name">Name: ${char.name}</div>
@@ -18,7 +21,7 @@ window.addEventListener('load', () => {
                      <div class="weapon">Weapon: ${char.weapon}</div>
                    </div>`
           })
-          document.querySelector('.characters-container').innerHTML = charList
+          characterContainer.innerHTML = charList
         })
         .catch((err) => console.error(err))
     })
@@ -39,7 +42,7 @@ window.addEventListener('load', () => {
                   <div class="cartoon">Is a Cartoon?: ${character.cartoon}</div>
                   <div class="weapon">Weapon: ${character.weapon}</div>
                 </div>`
-          document.querySelector('.characters-container').innerHTML = text
+          characterContainer = text
           document.querySelector('.operation input').value = ''
         })
         .catch((err) => console.log('ERROR', err))
@@ -59,6 +62,7 @@ window.addEventListener('load', () => {
           document.querySelector('.delete input').value = ''
         })
         .catch((err) => {
+          console.error(err)
           document.getElementById('delete-one').style.backgroundColor = 'red'
         })
     })
@@ -83,11 +87,11 @@ window.addEventListener('load', () => {
         .updateOneRegister(character)
         .then(() => {
           editForm.reset()
-          document.getElementById('send-data').style.backgroundColor = 'green'
+          updateBtn.style.backgroundColor = 'green'
         })
         .catch((err) => {
           console.error(err)
-          document.getElementById('send-data').style.backgroundColor = 'red'
+          updateBtn.style.backgroundColor = 'red'
         })
     })
 
@@ -109,14 +113,12 @@ window.addEventListener('load', () => {
       charactersAPI
         .createOneRegister(character)
         .then((newChar) => {
-          document.getElementById('create-send-data').style.backgroundColor =
-            'green'
+          createBtn.style.backgroundColor = 'green'
           newForm.reset()
         })
         .catch((err) => {
           console.error(err)
-          document.getElementById('create-send-data').style.backgroundColor =
-            'red'
+          createBtn.style.backgroundColor = 'red'
         })
     })
 })

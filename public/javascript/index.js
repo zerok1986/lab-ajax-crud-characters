@@ -2,7 +2,12 @@ const charactersAPI = new APIHandler('https://minions-api.herokuapp.com/')
 const characterContainer = document.querySelector('.characters-container')
 const updateBtn = document.getElementById('send-data')
 const createBtn = document.getElementById('create-send-data')
+const editInputs = document.querySelectorAll('#edit-character-form input')
+const editForm = document.querySelector('#edit-character-form')
+const newInputs = document.querySelectorAll('#new-character-form input')
+const newForm = document.querySelector('#new-character-form')
 
+// Get All Characters
 window.addEventListener('load', () => {
   document
     .getElementById('fetch-all')
@@ -26,6 +31,7 @@ window.addEventListener('load', () => {
         .catch((err) => console.error(err))
     })
 
+  // Get One Character
   document
     .getElementById('fetch-one')
     .addEventListener('click', function (event) {
@@ -48,6 +54,7 @@ window.addEventListener('load', () => {
         .catch((err) => console.log('ERROR', err))
     })
 
+  // Delete Character by Id
   document
     .getElementById('delete-one')
     .addEventListener('click', function (event) {
@@ -67,20 +74,18 @@ window.addEventListener('load', () => {
         })
     })
 
+  // Edit One Character by Id
   document
     .getElementById('edit-character-form')
     .addEventListener('submit', function (event) {
       event.preventDefault()
 
-      const inputs = document.querySelectorAll('#edit-character-form input')
-      const editForm = document.querySelector('#edit-character-form')
-
       const character = {
-        id: inputs[0].value,
-        name: inputs[1].value,
-        occupation: inputs[2].value,
-        weapon: inputs[3].value,
-        cartoon: inputs[4].checked,
+        id: editInputs[0].value,
+        name: editInputs[1].value,
+        occupation: editInputs[2].value,
+        weapon: editInputs[3].value,
+        cartoon: editInputs[4].checked,
       }
 
       charactersAPI
@@ -95,19 +100,17 @@ window.addEventListener('load', () => {
         })
     })
 
+  // Create a New Character
   document
     .getElementById('new-character-form')
     .addEventListener('submit', function (event) {
       event.preventDefault()
 
-      const inputs = document.querySelectorAll('#new-character-form input')
-      const newForm = document.querySelector('#new-character-form')
-
       const character = {
-        name: inputs[0].value,
-        occupation: inputs[1].value,
-        weapon: inputs[2].value,
-        cartoon: inputs[3].checked,
+        name: newInputs[0].value,
+        occupation: newInputs[1].value,
+        weapon: newInputs[2].value,
+        cartoon: newInputs[3].checked,
       }
 
       charactersAPI

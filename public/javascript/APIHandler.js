@@ -1,25 +1,18 @@
 class APIHandler {
-  constructor (baseUrl) {
-    this.BASE_URL = baseUrl;
+  constructor(baseUrl) {
+    this.BASE_URL = baseUrl
+    this.axiosApp = axios.create({ baseURL: this.BASE_URL })
   }
 
-  getFullList () {
+  getFullList = () => this.axiosApp.get('/characters')
 
-  }
+  getOneRegister = (id) => this.axiosApp.get(`/characters/${id}`)
 
-  getOneRegister () {
+  createOneRegister = (character) =>
+    this.axiosApp.post('/characters', character)
 
-  }
+  updateOneRegister = (character) =>
+    this.axiosApp.put(`/characters/${character.id}`, character)
 
-  createOneRegister () {
-
-  }
-
-  updateOneRegister () {
-
-  }
-
-  deleteOneRegister () {
-
-  }
+  deleteOneRegister = (id) => this.axiosApp.delete(`/characters/${id}`)
 }

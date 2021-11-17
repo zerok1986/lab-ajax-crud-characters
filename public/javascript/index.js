@@ -48,7 +48,7 @@ window.addEventListener('load', () => {
                   <div class="cartoon">Is a Cartoon?: ${character.cartoon}</div>
                   <div class="weapon">Weapon: ${character.weapon}</div>
                 </div>`
-          characterContainer = text
+          characterContainer.innerHTML = text
           document.querySelector('.operation input').value = ''
         })
         .catch((err) => console.log('ERROR', err))
